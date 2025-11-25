@@ -1,0 +1,2 @@
+index=* 
+| stats count by auth_success
