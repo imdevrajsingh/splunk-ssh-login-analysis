@@ -1,0 +1,3 @@
+index=* 
+| stats values(auth_success) as status by id.orig_h
+| search status="true" AND status="false"
