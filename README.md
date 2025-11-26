@@ -115,6 +115,28 @@ index=*
 ✔ Measures how many total attempts each IP generated.
 ✔ Helps identify aggressive attackers.
 
+
+## 📸 Dashboard Preview
+
+### 🔹 Top Attacker
+<img src="images/Screenshot%202025-11-25%20164045.png" width="600">
+
+### 🔹 Top 10 Attackers
+<img src="images/Screenshot%202025-11-25%20164103.png" width="600">
+
+### 🔹 Success vs Failed Logins
+<img src="images/Screenshot%202025-11-25%20164131.png" width="600">
+
+### 🔹 Compromised IPs
+<img src="images/Screenshot%202025-11-25%20164200.png" width="600">
+
+### 🔹 Top Targeted Servers
+<img src="images/Screenshot%202025-11-26%20141512.png" width="600">
+
+### 🔹 Attempt Intensity Per IP
+<img src="images/Screenshot%202025-11-26%20142816.png" width="600">
+
+
 ## 📊 What This Project Demonstrates
 
 -This project shows practical SOC investigation skills using Splunk:
