@@ -1,0 +1,125 @@
+<dashboard version="1.1" theme="dark">
+  <label>SSH Login Analysis Dashboard</label>
+  <description>Visual representation of SSH authentication logs</description>
+
+  <!-- PANEL 1: Top Attacker -->
+  <row>
+    <panel>
+      <single>
+        <title>Top Attacker</title>
+        <search>
+          <query>
+            index=* auth_success=false
+            | stats count by id.orig_h
+            | sort -count
+            | head 1
+          </query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="drilldown">none</option>
+      </single>
+    </panel>
+  </row>
+
+  <!-- PANEL 2: Top 10 Attackers -->
+  <row>
+    <panel>
+      <chart>
+        <title>Top 10 Attackers</title>
+        <search>
+          <query>
+            index=* auth_success=false
+            | stats count by id.orig_h
+            | sort -count
+            | head 10
+          </query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="charting.chart">bar</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+  </row>
+
+  <!-- PANEL 3: Success vs Failed Logins -->
+  <row>
+    <panel>
+      <chart>
+        <title>Success vs Failed Logins</title>
+        <search>
+          <query>
+            index=*
+            | stats count by auth_success
+          </query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+  </row>
+
+  <!-- PANEL 4: Compromised IPs -->
+  <row>
+    <panel>
+      <table>
+        <title>Compromised IPs</title>
+        <search>
+          <query>
+            index=*
+            | stats values(auth_success) as status by id.orig_h
+            | search status="true" AND status="false"
+          </query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+
+  <!-- PANEL 5: Top Targeted Servers -->
+  <row>
+    <panel>
+      <chart>
+        <title>Top Targeted Servers</title>
+        <search>
+          <query>
+            index=* auth_success=false
+            | stats count by id.resp_h
+            | sort -count
+            | head 5
+          </query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="charting.chart">bar</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+  </row>
+
+  <!-- PANEL 6: Attempt Intensity Per IP -->
+  <row>
+    <panel>
+      <table>
+        <title>Attempt Intensity Per IP</title>
+        <search>
+          <query>
+            index=*
+            | stats sum(auth_attempts) as attempts by id.orig_h
+            | sort -attempts
+            | head 5
+          </query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+
+</dashboard>
