@@ -9,16 +9,28 @@ Why analyze SSH logins? SSH is a common method for remote server access, and att
 All queries in this project are written specifically for Zeek-style SSH logs, with fields such as id.orig_h, id.resp_h, auth_success, auth_attempts, and event_type.
 
 ## 📁 Project Structure
+
 /Splunk-SSH-Login-Analysis
 │
-├── 01_top_attacker.spl
-├── 02_top10_attackers.spl
-├── 03_success_vs_failed.spl
-├── 04_compromised_ips.spl
-├── 05_top_dest_servers.spl
-├── 06_attempts_per_ip.spl
+├── 01_top_attacker.spl        # Splunk query: identifies the top attacker IP
+├── 02_top10_attackers.spl     # Splunk query: lists top 10 attacker IPs
+├── 03_success_vs_failed.spl   # Splunk query: compares successful vs failed login attempts
+├── 04_compromised_ips.spl     # Splunk query: detects potentially compromised IPs
+├── 05_top_dest_servers.spl    # Splunk query: lists most targeted destination servers
+├── 06_attempts_per_ip.spl     # Splunk query: counts login attempts per source IP
 │
-└── README.md   ← (this file)
+├── dashboard/                 # Folder containing Splunk dashboard XML files
+│   └── ssh_login_analysis.xml  # Main Splunk dashboard for SSH login visualization
+│
+├── images/                    # Screenshots of dashboards and visual outputs
+│   └── ...                     # Example: ssh_dashboard_preview.png
+│
+├── data/                      # Sample SSH login logs for testing (optional)
+│   └── ...                     # Example: sample_ssh_logs.csv
+│
+└── README.md                  # Project documentation (this file)
+
+---
 
 ## 📌 About the Dataset
 
