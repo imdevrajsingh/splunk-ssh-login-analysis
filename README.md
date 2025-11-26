@@ -2,6 +2,9 @@
 
 This project focuses on analyzing SSH authentication logs using Splunk.
 The goal is to identify attacker behavior, detect brute-force attempts, and understand authentication patterns by using six core SOC-level detections.
+By identifying unusual login patterns and failed login spikes, it helps security analysts respond faster and strengthen system security. Ideal for SOC teams or anyone monitoring server access for potential threats.
+
+Why analyze SSH logins? SSH is a common method for remote server access, and attackers often target it using brute-force attacks, stolen credentials, or unauthorized login attempts.
 
 All queries in this project are written specifically for Zeek-style SSH logs, with fields such as id.orig_h, id.resp_h, auth_success, auth_attempts, and event_type.
 
