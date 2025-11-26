@@ -1,4 +1,4 @@
-Splunk SSH Login Analysis — SOC Investigation Project
+## Splunk SSH Login Analysis — SOC Investigation Project
 
 This project focuses on analyzing SSH authentication logs using Splunk.
 The goal is to identify attacker behavior, detect brute-force attempts, and understand authentication patterns by using six core SOC-level detections.
